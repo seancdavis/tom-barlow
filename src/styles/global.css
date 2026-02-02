@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+/* FC Cincinnati Brand Colors */
+@theme {
+  --color-fcc-orange: #FE5000;
+  --color-fcc-orange-dark: #E04500;
+  --color-fcc-blue: #003087;
+  --color-fcc-navy: #041E42;
+  --color-fcc-light-gray: #BBBCBC;
+
+  /* Font families */
+  --font-oswald: "Oswald", sans-serif;
+  --font-source: "Source Sans 3", sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-fcc-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-fcc-orange);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-fcc-orange-dark);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--color-fcc-orange);
+  color: white;
+}
