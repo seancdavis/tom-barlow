@@ -1,0 +1,55 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+
+const stats = [
+  { value: "173", label: "MLS Appearances", sub: "Regular Season" },
+  { value: "19", label: "MLS Goals", sub: "Regular Season" },
+  { value: "3", label: "Playoff Goals", sub: "MLS Cup Playoffs" },
+  { value: "21", label: "USL Goals", sub: "Red Bulls II" },
+  { value: "23", label: "College Goals", sub: "Wisconsin Badgers" },
+  { value: "78", label: "College Apps", sub: "76 Starts" },
+  { value: "39th", label: "Draft Pick", sub: "2018 MLS SuperDraft" },
+  { value: "1", label: "Hat Trick", sub: "vs D.C. United (2025)" },
+];
+---
+
+<section id="stats" class="stats-section relative py-24 px-8 overflow-hidden bg-fcc-blue">
+  <!-- Cross-pattern texture overlay -->
+  <div class="stats-texture absolute inset-0 pointer-events-none"></div>
+
+  <div class="max-w-[1200px] mx-auto relative z-10">
+    <SectionHeader label="By The Numbers" title="Career Statistics" />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        stats.map((s) => (
+          <div class="stat-card group relative overflow-hidden border border-fcc-orange/20 p-8 text-center transition-all duration-400 ease-out fade-in">
+            {/* Bottom bar on hover */}
+            <div class="absolute bottom-0 inset-x-0 h-[3px] bg-fcc-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-out" />
+            <div class="font-display text-[4rem] text-fcc-orange leading-none mb-2">
+              {s.value}
+            </div>
+            <div class="text-sm uppercase tracking-[0.15em] text-fcc-gray">{s.label}</div>
+            <div class="text-xs text-white/50 mt-1">{s.sub}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-texture {
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FE5000' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .stat-card {
+    background: linear-gradient(135deg, rgba(4, 30, 66, 0.9), rgba(0, 48, 135, 0.5));
+  }
+
+  .stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-fcc-orange);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+</style>

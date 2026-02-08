@@ -1,0 +1,35 @@
+---
+import FccLogo from "./FccLogo.astro";
+
+const links = [
+  { href: "#bio", text: "Bio" },
+  { href: "#stats", text: "Stats" },
+  { href: "#style", text: "Playing Style" },
+  { href: "#career", text: "Career" },
+  { href: "#quotes", text: "Quotes" },
+];
+---
+
+<nav
+  class="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-4 py-4 md:px-8"
+  style="background: linear-gradient(180deg, rgba(4,30,66,0.95), transparent)"
+>
+  <a href="/" class="flex items-center gap-3 no-underline text-fcc-white">
+    <FccLogo size={48} />
+    <span class="font-display text-2xl tracking-wide">FC Cincinnati</span>
+  </a>
+  <ul class="hidden md:flex gap-8 list-none">
+    {
+      links.map((l) => (
+        <li>
+          <a
+            href={l.href}
+            class="text-fcc-white no-underline font-semibold text-sm uppercase tracking-widest hover:text-fcc-orange transition-colors duration-300"
+          >
+            {l.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

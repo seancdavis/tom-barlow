@@ -1,1 +1,91 @@
 @import "tailwindcss";
+
+@theme {
+  /* FCC Brand Palette */
+  --color-fcc-orange: #FE5000;
+  --color-fcc-orange-bright: #FF6A1F;
+  --color-fcc-orange-deep: #D94400;
+  --color-fcc-blue: #003087;
+  --color-fcc-blue-light: #0A3F9E;
+  --color-fcc-dark-blue: #041E42;
+  --color-fcc-navy: #020F22;
+  --color-fcc-gray: #BBBCBC;
+  --color-fcc-white: #FFFFFF;
+
+  /* Typography */
+  --font-display: "Bebas Neue", sans-serif;
+  --font-body: "Source Sans 3", sans-serif;
+
+  /* Animations */
+  --animate-fade-up: fade-up 0.8s ease both;
+  --animate-fade-up-delayed: fade-up 1s ease 0.2s both;
+  --animate-fade-up-delayed-2: fade-up 1s ease 0.4s both;
+  --animate-fade-up-delayed-3: fade-up 1s ease 0.6s both;
+  --animate-slide-down: slide-down 0.8s ease-out both;
+  --animate-number-pulse: number-pulse 4s ease-in-out infinite;
+  --animate-hero-glow: hero-glow 15s ease-in-out infinite alternate;
+  --animate-bounce-arrow: bounce-arrow 2s ease-in-out infinite;
+  --animate-marker-pulse: marker-pulse 2s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes number-pulse {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.22; }
+}
+
+@keyframes hero-glow {
+  from { transform: translate(0) rotate(0deg); }
+  to { transform: translate(-5%, 5%) rotate(5deg); }
+}
+
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+@keyframes marker-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(254, 80, 0, 0.5); }
+  50% { box-shadow: 0 0 0 15px rgba(254, 80, 0, 0); }
+}
+
+/* Scroll-triggered fade-in (toggled by IntersectionObserver) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Base resets */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Angled badge clip-path utility */
+.clip-badge {
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+
+/* Cut-corner icon shape */
+.clip-corner {
+  clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+}

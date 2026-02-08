@@ -1,0 +1,136 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+
+interface TimelineStat {
+  value: string;
+  label: string;
+}
+
+interface TimelineEntry {
+  date: string;
+  title: string;
+  subtitle: string;
+  content: string;
+  current?: boolean;
+  stats?: TimelineStat[];
+}
+
+const entries: TimelineEntry[] = [
+  {
+    date: "2026 - Present",
+    title: "FC Cincinnati",
+    subtitle: "MLS - Eastern Conference",
+    content:
+      "Signed as a free agent on January 12, 2026. Attracted by FCC's winning culture, world-class TQL Stadium, and passionate fanbase. Ready to contribute to the club's continued pursuit of MLS Cup glory.",
+    current: true,
+  },
+  {
+    date: "2024 - 2025",
+    title: "Chicago Fire FC",
+    subtitle: "MLS - Eastern Conference",
+    content:
+      "Two seasons in the Windy City provided valuable experience and a career-defining moment\u2014a hat trick against D.C. United in June 2025, earning his first MLS Player of the Matchday award.",
+    stats: [
+      { value: "50", label: "Appearances" },
+      { value: "5", label: "Goals" },
+    ],
+  },
+  {
+    date: "2019 - 2023",
+    title: "New York Red Bulls",
+    subtitle: "MLS - Eastern Conference",
+    content:
+      "Five seasons with the Red Bulls shaped Barlow into the player he is today. Developed in their famous high-pressing system, he scored on his MLS debut against Atlanta United and accumulated valuable playoff experience with 3 postseason goals.",
+    stats: [
+      { value: "140", label: "Apps (All Comps)" },
+      { value: "18", label: "Goals" },
+      { value: "3", label: "Playoff Goals" },
+    ],
+  },
+  {
+    date: "2018 - 2019",
+    title: "New York Red Bulls II",
+    subtitle: "USL Championship",
+    content:
+      "Dominated at the USL level, showcasing prolific goal-scoring ability that earned his promotion to the first team. His time with Red Bulls II proved he could find the net consistently when given playing time.",
+    stats: [
+      { value: "42", label: "Appearances" },
+      { value: "21", label: "Goals" },
+      { value: "4", label: "Assists" },
+    ],
+  },
+  {
+    date: "2014 - 2017",
+    title: "University of Wisconsin",
+    subtitle: "NCAA Division I",
+    content:
+      "Four stellar seasons as a Wisconsin Badger, where Barlow's physical attributes and goal-scoring prowess caught the attention of MLS scouts. Selected 39th overall in the 2018 MLS SuperDraft.",
+    stats: [
+      { value: "78", label: "Appearances" },
+      { value: "23", label: "Goals" },
+      { value: "10", label: "Game Winners" },
+    ],
+  },
+  {
+    date: "Youth",
+    title: "St. Louis Scott Gallagher",
+    subtitle: "Youth Academy - St. Louis, MO",
+    content:
+      "Developed through one of America's premier youth soccer programs alongside notable talents. This is the same club where FC Cincinnati Head Coach Pat Noonan began his own soccer journey\u2014a connection that adds special meaning to this move.",
+  },
+];
+---
+
+<section id="career" class="relative py-24 px-8 bg-fcc-dark-blue">
+  <div class="max-w-[1200px] mx-auto">
+    <SectionHeader label="Journey" title="Career Timeline" />
+
+    <div class="timeline-track relative pl-12">
+      <!-- Gradient line -->
+      <div
+        class="absolute left-0 top-0 bottom-0 w-0.5"
+        style="background: linear-gradient(180deg, var(--color-fcc-orange) 0%, var(--color-fcc-blue) 100%)"
+      >
+      </div>
+
+      {
+        entries.map((e, i) => (
+          <div
+            class:list={[
+              "relative fade-in",
+              i < entries.length - 1 ? "pb-12" : "pb-0",
+            ]}
+          >
+            {/* Diamond marker */}
+            <div
+              class:list={[
+                "absolute -left-12 top-0 bg-fcc-orange border-[3px] border-fcc-dark-blue -translate-x-1/2 rotate-45",
+                e.current
+                  ? "w-6 h-6 animate-marker-pulse"
+                  : "w-4 h-4",
+              ]}
+            />
+
+            <div class="font-display text-xl text-fcc-orange mb-2">{e.date}</div>
+            <div class="text-2xl font-bold text-fcc-white mb-2">{e.title}</div>
+            <div class="text-fcc-gray mb-4">{e.subtitle}</div>
+            <div class="text-white/80 leading-relaxed">{e.content}</div>
+
+            {e.stats && (
+              <div class="flex gap-8 mt-4 flex-wrap">
+                {e.stats.map((s) => (
+                  <div class="flex items-baseline gap-2">
+                    <span class="font-display text-2xl text-fcc-orange">{s.value}</span>
+                    <span class="text-xs uppercase tracking-widest text-fcc-gray">
+                      {s.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

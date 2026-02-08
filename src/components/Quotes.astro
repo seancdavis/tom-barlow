@@ -1,0 +1,57 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+
+const quotes = [
+  {
+    text: "This opportunity made me want to join FC Cincinnati, because of what you guys have done here in the past few years. The winning culture, the amazing Stadium, the amazing fans, it's a dream come true to join this club.",
+    author: "Tom Barlow",
+    role: "On signing with FC Cincinnati",
+  },
+  {
+    text: "Tom is a forward with a wealth of experience in our league, and his skill set is an excellent addition to our attack. He's a player of high character and a great teammate.",
+    author: "Chris Albright",
+    role: "FC Cincinnati General Manager",
+  },
+  {
+    text: "Whatever the team needs... I'm a winner. So just trying to win.",
+    author: "Tom Barlow",
+    role: "On his playing philosophy",
+  },
+  {
+    text: "Tom's physical components and athleticism will be difficult for any defender across the country to deal with.",
+    author: "Wisconsin Badgers Coaching Staff",
+    role: "During his college career",
+  },
+];
+---
+
+<section
+  id="quotes"
+  class="quotes-section relative py-24 px-8 overflow-hidden"
+  style="background: linear-gradient(135deg, var(--color-fcc-blue) 0%, var(--color-fcc-dark-blue) 100%)"
+>
+  <!-- Giant decorative quote mark -->
+  <div
+    class="absolute -top-[100px] -left-[50px] font-display text-[40rem] text-fcc-orange opacity-[0.03] leading-none pointer-events-none select-none"
+  >
+    &ldquo;
+  </div>
+
+  <div class="max-w-[1200px] mx-auto relative z-10">
+    <SectionHeader label="In Their Words" title="What They're Saying" />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      {
+        quotes.map((q) => (
+          <div class="bg-fcc-dark-blue/70 border-l-4 border-fcc-orange p-10 relative fade-in">
+            <p class="text-xl italic text-fcc-white leading-relaxed mb-6">
+              &ldquo;{q.text}&rdquo;
+            </p>
+            <p class="font-bold text-fcc-orange">{q.author}</p>
+            <p class="text-sm text-fcc-gray">{q.role}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

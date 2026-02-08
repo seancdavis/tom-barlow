@@ -1,0 +1,90 @@
+---
+const stats = [
+  { value: "214", label: "Career Apps" },
+  { value: "42", label: "Career Goals" },
+  { value: "9", label: "MLS Seasons" },
+];
+---
+
+<section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Animated glow layer -->
+  <div class="hero-glow absolute -top-1/2 -left-1/2 w-[200%] h-[200%] animate-hero-glow pointer-events-none"></div>
+
+  <!-- Diagonal stripe texture -->
+  <div class="hero-stripes absolute inset-0 pointer-events-none"></div>
+
+  <!-- Giant jersey number watermark -->
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[clamp(8rem,25vw,20rem)] leading-[0.85] text-transparent animate-number-pulse z-0"
+    style="-webkit-text-stroke: 3px var(--color-fcc-orange)"
+  >
+    16
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-8 max-w-[1200px]">
+    <span
+      class="clip-badge inline-block bg-fcc-orange text-fcc-white px-6 py-2 text-sm font-bold uppercase tracking-[0.15em] mb-8 animate-slide-down"
+    >
+      New Signing 2026
+    </span>
+
+    <h1 class="font-display text-[clamp(4rem,12vw,10rem)] leading-[0.95] tracking-wide mb-4 animate-fade-up-delayed">
+      <span class="block text-fcc-white">Tom</span>
+      <span class="block text-fcc-orange" style="text-shadow: 0 0 60px rgba(254,80,0,0.3)">
+        Barlow
+      </span>
+    </h1>
+
+    <p class="text-2xl font-semibold uppercase tracking-[0.3em] text-fcc-gray mb-12 animate-fade-up-delayed-2">
+      Forward
+    </p>
+
+    <div class="flex justify-center gap-8 md:gap-16 flex-wrap animate-fade-up-delayed-3">
+      {
+        stats.map((s) => (
+          <div class="text-center">
+            <div class="font-display text-[3.5rem] text-fcc-orange leading-none">{s.value}</div>
+            <div class="text-sm uppercase tracking-[0.15em] text-fcc-gray mt-2">{s.label}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 animate-bounce-arrow">
+    <svg
+      class="w-8 h-8 stroke-fcc-orange"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M12 5v14M5 12l7 7 7-7"></path>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    background: linear-gradient(135deg, var(--color-fcc-dark-blue) 0%, var(--color-fcc-blue) 50%, var(--color-fcc-dark-blue) 100%);
+  }
+
+  .hero-glow {
+    background:
+      radial-gradient(circle at 30% 20%, rgba(254, 80, 0, 0.3) 0%, transparent 40%),
+      radial-gradient(circle at 70% 80%, rgba(0, 48, 135, 0.3) 0%, transparent 40%);
+  }
+
+  .hero-stripes {
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 80px,
+      rgba(254, 80, 0, 0.03) 80px,
+      rgba(254, 80, 0, 0.03) 82px
+    );
+  }
+</style>

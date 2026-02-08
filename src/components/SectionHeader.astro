@@ -1,0 +1,19 @@
+---
+interface Props {
+  label: string;
+  title: string;
+}
+
+const { label, title } = Astro.props;
+---
+
+<div class="mb-16 fade-in">
+  <span
+    class="clip-badge inline-block bg-fcc-orange text-fcc-white px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] mb-4"
+  >
+    {label}
+  </span>
+  <h2 class="font-display text-[clamp(2.5rem,6vw,4rem)] leading-none text-fcc-white">
+    {title}
+  </h2>
+</div>

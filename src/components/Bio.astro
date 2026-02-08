@@ -1,0 +1,84 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+
+const details = [
+  { label: "Full Name", value: "Tom Barlow" },
+  { label: "Position", value: "Forward / Striker" },
+  { label: "Jersey Number", value: "#16" },
+  { label: "Height", value: '6\'2" (188 cm)' },
+  { label: "Born", value: "July 8, 1995 (Age 30)" },
+  { label: "Hometown", value: "St. Louis, Missouri" },
+  { label: "Contract", value: "Through Dec 2027 (+option)" },
+];
+---
+
+<section
+  id="bio"
+  class="relative py-24 px-8 md:px-8"
+  style="background: linear-gradient(180deg, var(--color-fcc-dark-blue) 0%, var(--color-fcc-blue) 100%)"
+>
+  <div class="max-w-[1200px] mx-auto">
+    <SectionHeader label="Player Profile" title="Meet Tom Barlow" />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <!-- Details card -->
+      <div class="bio-card relative overflow-hidden border border-fcc-orange/30 p-8 lg:p-12 fade-in">
+        <!-- Orange accent bar -->
+        <div class="absolute top-0 left-0 w-1 h-full bg-fcc-orange"></div>
+        <!-- Watermark "16" -->
+        <div
+          class="absolute -bottom-5 -right-2.5 font-display text-[12rem] text-fcc-orange opacity-5 leading-none pointer-events-none"
+        >
+          16
+        </div>
+
+        {
+          details.map((d, i) => (
+            <div
+              class:list={[
+                "flex justify-between py-4",
+                i < details.length - 1 && "border-b border-white/10",
+              ]}
+            >
+              <span class="text-fcc-gray text-sm uppercase tracking-widest">{d.label}</span>
+              <span class="font-bold text-fcc-white">{d.value}</span>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Narrative text -->
+      <div class="text-lg leading-[1.8] text-white/90 space-y-6 fade-in">
+        <p>
+          Tom Barlow arrives at FC Cincinnati as a <span class="text-fcc-orange font-bold"
+            >proven MLS veteran</span
+          > with nearly a decade of top-flight experience. Standing at 6'2", this physical
+          forward from St. Louis brings a wealth of experience in the Eastern Conference, having
+          made his mark with the New York Red Bulls and Chicago Fire.
+        </p>
+        <p>
+          Barlow shares a special connection with Head Coach <span
+            class="text-fcc-orange font-bold">Pat Noonan</span
+          >&mdash;both players developed through the <span class="text-fcc-orange font-bold"
+            >St. Louis Scott Gallagher</span
+          > youth system, one of the premier youth programs in American soccer. This shared
+          footballing DNA suggests an instant understanding of the mentality and culture Noonan
+          has built at FCC.
+        </p>
+        <p>
+          Signed as a free agent on <span class="text-fcc-orange font-bold"
+            >January 12, 2026</span
+          >, Barlow bolsters FC Cincinnati's attacking options as the club continues to build on
+          their historic success, including their 2023 Supporters' Shield victory and MLS-record
+          180 points earned across 2022-2024.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bio-card {
+    background: linear-gradient(135deg, rgba(0, 48, 135, 0.5), rgba(4, 30, 66, 0.8));
+  }
+</style>
