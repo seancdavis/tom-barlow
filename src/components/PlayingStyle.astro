@@ -1,42 +1,43 @@
 ---
 import SectionHeader from "./SectionHeader.astro";
+import { Crosshair, Zap, Flag, Shield, Users, Layers } from "@lucide/astro";
 
 const traits = [
   {
     title: "Target Man",
     description:
       'At 6\'2", Barlow serves as a classic target striker who can hold up play and bring teammates into the attack. His physical presence makes him a focal point in the final third, capable of winning aerial duels and shielding the ball into dangerous areas.',
-    icon: "target",
+    Icon: Crosshair,
   },
   {
     title: "Explosive Pace",
     description:
       "Despite his size, Barlow possesses tremendous speed and can generate significant steam on runs in open space. This combination of height and pace makes him a dual threat\u2014equally dangerous in aerial battles and running in behind defensive lines.",
-    icon: "bolt",
+    Icon: Zap,
   },
   {
     title: "Work Rate",
     description:
       'Known for leaving "everything on the field," Barlow is an impactful defender from the forward position. His pressing and tracking back fit perfectly into modern tactical systems that demand high-energy contributions from all positions.',
-    icon: "flag",
+    Icon: Flag,
   },
   {
     title: "Aerial Threat",
     description:
       "Statistical strength in aerial duels makes Barlow dangerous on set pieces. His ability to win headers in the box and execute flick-ons creates opportunities for teammates while keeping defenders honest on crosses and corners.",
-    icon: "info",
+    Icon: Shield,
   },
   {
     title: "Team Player",
     description:
       "A player of high character who prioritizes team success over personal statistics. His direct approach and willingness to do whatever the team needs make him a valuable squad member who can change games from the bench or the starting lineup.",
-    icon: "users",
+    Icon: Users,
   },
   {
     title: "MLS Experience",
     description:
       "With nine MLS seasons under his belt, Barlow brings invaluable experience in the Eastern Conference. He understands the league's unique demands and has proven himself against the best competition MLS has to offer.",
-    icon: "layers",
+    Icon: Layers,
   },
 ];
 ---
@@ -53,50 +54,9 @@ const traits = [
       {
         traits.map((t) => (
           <div class="group bg-fcc-blue/30 border border-fcc-orange/15 p-10 relative transition-all duration-400 hover:border-fcc-orange hover:bg-fcc-blue/50 fade-in">
-            {/* Icon */}
             <div class="clip-corner w-16 h-16 bg-fcc-orange flex items-center justify-center mb-6">
-              {t.icon === "target" && (
-                <svg class="w-8 h-8 stroke-fcc-white fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="16" />
-                  <line x1="8" y1="12" x2="16" y2="12" />
-                </svg>
-              )}
-              {t.icon === "bolt" && (
-                <svg class="w-8 h-8 stroke-fcc-white fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                </svg>
-              )}
-              {t.icon === "flag" && (
-                <svg class="w-8 h-8 stroke-fcc-white fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-                  <line x1="4" y1="22" x2="4" y2="15" />
-                </svg>
-              )}
-              {t.icon === "info" && (
-                <svg class="w-8 h-8 stroke-fcc-white fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 16v-4" />
-                  <path d="M12 8h.01" />
-                </svg>
-              )}
-              {t.icon === "users" && (
-                <svg class="w-8 h-8 stroke-fcc-white fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-              )}
-              {t.icon === "layers" && (
-                <svg class="w-8 h-8 stroke-fcc-white fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                  <path d="M2 17l10 5 10-5" />
-                  <path d="M2 12l10 5 10-5" />
-                </svg>
-              )}
+              <t.Icon class="w-8 h-8 text-fcc-white" strokeWidth={2} />
             </div>
-
             <h3 class="font-display text-[1.75rem] text-fcc-white mb-4">{t.title}</h3>
             <p class="text-white/80 leading-relaxed">{t.description}</p>
           </div>

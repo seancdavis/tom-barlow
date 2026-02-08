@@ -1,4 +1,6 @@
 ---
+import { ChevronDown } from "@lucide/astro";
+
 const stats = [
   { value: "214", label: "Career Apps" },
   { value: "42", label: "Career Goals" },
@@ -12,6 +14,19 @@ const stats = [
 
   <!-- Diagonal stripe texture -->
   <div class="hero-stripes absolute inset-0 pointer-events-none"></div>
+
+  <!-- Player image — positioned right, cropped to focus on him -->
+  <div class="absolute inset-0 flex justify-end items-end pointer-events-none">
+    <img
+      src="/tom-barlow.jpg"
+      alt="Tom Barlow"
+      class="hero-image h-full w-auto max-w-none object-cover object-[70%_top] opacity-30 md:opacity-40 lg:opacity-50"
+      loading="eager"
+    />
+    <!-- Gradient fade over image to blend with hero background -->
+    <div class="absolute inset-0 bg-gradient-to-r from-fcc-dark-blue via-fcc-dark-blue/80 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-fcc-dark-blue via-transparent to-fcc-dark-blue/60"></div>
+  </div>
 
   <!-- Giant jersey number watermark -->
   <div
@@ -54,16 +69,7 @@ const stats = [
 
   <!-- Scroll indicator -->
   <div class="absolute bottom-8 left-1/2 animate-bounce-arrow">
-    <svg
-      class="w-8 h-8 stroke-fcc-orange"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="M12 5v14M5 12l7 7 7-7"></path>
-    </svg>
+    <ChevronDown class="w-8 h-8 text-fcc-orange" strokeWidth={2} />
   </div>
 </section>
 
