@@ -15,17 +15,17 @@ const stats = [
   <!-- Diagonal stripe texture -->
   <div class="hero-stripes absolute inset-0 pointer-events-none"></div>
 
-  <!-- Player image — positioned right, cropped to focus on him -->
-  <div class="absolute inset-0 flex justify-end items-end pointer-events-none">
+  <!-- Player image — positioned right, cropped to upper body -->
+  <div class="absolute inset-0 pointer-events-none">
     <img
-      src="/tom-barlow.jpg"
-      alt="Tom Barlow"
-      class="hero-image h-full w-auto max-w-none object-cover object-[70%_top] opacity-30 md:opacity-40 lg:opacity-50"
+      src="/tom-barlow.webp"
+      alt="Tom Barlow winning an aerial duel"
+      class="absolute right-0 top-0 h-full w-full md:w-3/4 lg:w-2/3 object-cover object-top opacity-25 md:opacity-35 lg:opacity-45 ml-auto"
       loading="eager"
     />
-    <!-- Gradient fade over image to blend with hero background -->
-    <div class="absolute inset-0 bg-gradient-to-r from-fcc-dark-blue via-fcc-dark-blue/80 to-transparent"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-fcc-dark-blue via-transparent to-fcc-dark-blue/60"></div>
+    <!-- Gradient overlays to blend image into hero -->
+    <div class="absolute inset-0 bg-gradient-to-r from-fcc-dark-blue via-fcc-dark-blue/90 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-fcc-dark-blue via-transparent to-fcc-dark-blue/50"></div>
   </div>
 
   <!-- Giant jersey number watermark -->
